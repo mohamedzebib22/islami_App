@@ -1,7 +1,8 @@
+import 'package:islami_app/models/sura_model.dart';
+
 class SuraDetailsModel {
-  String suraErName;
-  String suraArName;
+  SuraModel suraModel;
   int index;
 
-  SuraDetailsModel({required this.suraErName , required this.index , required this.suraArName});
+  SuraDetailsModel({required this.suraModel ,required this.index });
 }

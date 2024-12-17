@@ -4,6 +4,7 @@ import 'package:islami_app/constants/const.dart';
 import 'package:islami_app/models/sura_details_model.dart';
 import 'package:islami_app/components/custom_appbar.dart';
 import 'package:islami_app/components/item_sura_content.dart';
+import 'package:islami_app/models/sura_model.dart';
 
 class SuraDetailsScreen extends StatefulWidget {
    SuraDetailsScreen({super.key});
@@ -20,9 +21,9 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
   @override
   Widget build(BuildContext context) {
 
-    var args = ModalRoute.of(context)?.settings.arguments as SuraDetailsModel;
+    var args = ModalRoute.of(context)?.settings.arguments as SuraModel;
     if(verses.isEmpty){
-      loadFiles(args.index);
+      loadFiles(args.fileName);
     }
     return Scaffold(
       body: Container(
@@ -52,8 +53,8 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
     );
   }
 
-  void loadFiles(int index) async{
-    String content =await rootBundle.loadString('assets/files/${index+1}.txt');
+  void loadFiles(String fileName) async{
+    String content =await rootBundle.loadString('assets/files/$fileName');
     List<String> lines = content.split('\n');
     verses = lines;
     setState(() {
@@ -61,3 +62,4 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
     });
   }
 }
+

@@ -3,11 +3,13 @@ import 'package:islami_app/constants/const.dart';
 import 'package:islami_app/constants/image_name.dart';
 
 class CustomTextfeild extends StatelessWidget {
-  const CustomTextfeild({super.key});
-
+   CustomTextfeild({super.key , required this.onChanged});
+  Function(String) onChanged;
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onChanged: onChanged,
+      style: TextStyle(color:kPrimaryColor),
       
       decoration: InputDecoration(
         hintText: 'Sura Name',
@@ -30,3 +32,4 @@ class CustomTextfeild extends StatelessWidget {
       );
   }
 }
+

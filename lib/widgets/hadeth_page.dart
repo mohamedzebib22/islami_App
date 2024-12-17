@@ -31,7 +31,6 @@ class _HadethPageState extends State<HadethPage> {
 
             HadethItem(title: hadethList[index].title, content: hadethList[index].content.join('\n'));
             
-                    
                   }),
           )
         ],
